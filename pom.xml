@@ -56,7 +56,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<packageName>org.gofleet.openls</packageName>
+					<packageName>org.jvnet.ogc</packageName>
+					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>

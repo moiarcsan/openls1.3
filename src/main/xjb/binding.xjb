@@ -1,6 +1,10 @@
-<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-	jaxb:extensionBindingPrefixes="xjc">
+<jaxb:bindings version="1.0" 
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:annox="http://annox.dev.java.net"
+	jaxb:extensionBindingPrefixes="xjc annox">
 	<jaxb:bindings schemaLocation="http://www.w3.org/1999/xlink.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="//xs:attributeGroup[@name='locatorAttrs']">
@@ -26,10 +30,10 @@
 			<jaxb:class name="DetermineRouteRequestTypeNav" />
 		</jaxb:bindings>
 		<jaxb:bindings node="xs:element[@name='DetermineRouteResponse']">
-			<jaxb:factoryMethod name="DetermineRouteResponseNav"/>
+			<jaxb:factoryMethod name="DetermineRouteResponseNav" />
 		</jaxb:bindings>
 		<jaxb:bindings node="xs:element[@name='DetermineRouteRequest']">
-			<jaxb:factoryMethod name="DetermineRouteRequestNav"/>
+			<jaxb:factoryMethod name="DetermineRouteRequestNav" />
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/ols/1.2/gml4xls.xsd"
@@ -38,25 +42,42 @@
 			<jaxb:class name="AngleTypeNav" />
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/ols/1.2/ADT.xsd" 
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/ols/1.2/ADT.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="xs:element[@name='_Position']">
-			<jaxb:factoryMethod name="APositionElement"/>
+			<jaxb:factoryMethod name="APositionElement" />
 		</jaxb:bindings>
 		<jaxb:bindings node="xs:element[@name='_POI']">
-			<jaxb:factoryMethod name="APOIElement"/>
+			<jaxb:factoryMethod name="APOIElement" />
 		</jaxb:bindings>
 		<jaxb:bindings node="xs:element[@name='_RouteSummary']">
-			<jaxb:factoryMethod name="ARouteSummaryElement"/>
+			<jaxb:factoryMethod name="ARouteSummaryElement" />
 		</jaxb:bindings>
 		<jaxb:bindings node="xs:element[@name='_NextSegment']">
-			<jaxb:factoryMethod name="ANextSegmentElement"/>
+			<jaxb:factoryMethod name="ANextSegmentElement" />
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/ols/1.2/DirectoryService.xsd" 
+	<jaxb:bindings
+		schemaLocation="http://schemas.opengis.net/ols/1.2/DirectoryService.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="xs:element[@name='_POIProperty']">
-			<jaxb:factoryMethod name="APOIPropertyElement"/>
+			<jaxb:factoryMethod name="APOIPropertyElement" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/ols/1.2/XLS.xsd"
+		node="/xs:schema">
+		<jaxb:bindings node="//xs:complexType[@name='XLSType']">
+			<jaxb:bindings node=".//xs:attribute[@name='version']">
+				<jaxb:property>
+					<jaxb:baseType name="java.lang.String" />
+				</jaxb:property>
+			</jaxb:bindings>
+		</jaxb:bindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/ols/1.2/ADT.xsd"
+		node="/xs:schema">
+		<jaxb:bindings node="//xs:complexType[@name='AddressType']/xs:complexContent/xs:extension/xs:choice/xs:element[@name='freeFormAddress']">
+			<annox:annotate>@javax.xml.bind.annotation.XmlElement(name = "FreeFormAddress")</annox:annotate>
 		</jaxb:bindings>
 	</jaxb:bindings>
 </jaxb:bindings>

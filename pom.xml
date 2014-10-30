@@ -58,12 +58,16 @@
 				<configuration>
 					<packageName>org.jvnet.ogc</packageName>
 					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+					<extension>true</extension>
+					<arguments>-Xannotate</arguments>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.jvnet.jaxb2_commons</groupId>
+						<artifactId>jaxb2-basics-annotate</artifactId>
+						<version>0.6.4</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
